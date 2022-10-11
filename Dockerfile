@@ -2,7 +2,7 @@ FROM alpine:3.13
 
 # use http else apk add not working behind proxy
 RUN sed -i 's/https/http/g' /etc/apk/repositories
-RUN apk add --no-cache tini
+RUN apk add --no-cache tini busybox-suid
 
 # Configure cron
 COPY crontab /var/spool/cron/crontabs/root
